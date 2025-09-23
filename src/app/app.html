@@ -1,0 +1,54 @@
+<div class="coming-soon-container">
+
+  <!-- Background effect -->
+  <div class="background-effect">
+    <div class="blob-1"></div>
+    <div class="blob-2"></div>
+  </div>
+
+  <img src="calmara.svg" alt="Logo" class="logo" />
+
+  <div class="content-card">
+    <h1 class="title">
+      {{ title() }}
+    </h1>
+    <p class="subtitle">
+      We're about to bring something amazing. Stay tuned!
+    </p>
+
+    @if (isLive()) {
+    <div class="live-message">
+      The website is now live!
+    </div>
+    } @else {
+    <div class="countdown">
+      <!-- Days -->
+      <div class="countdown__item">
+        <span class="countdown__value">{{ days() }}</span>
+        <span class="countdown__label">Days</span>
+      </div>
+      <!-- Hours -->
+      <div class="countdown__item">
+        <span class="countdown__value">{{ hours() }}</span>
+        <span class="countdown__label">Hours</span>
+      </div>
+      <!-- Minutes -->
+      <div class="countdown__item">
+        <span class="countdown__value">{{ minutes() }}</span>
+        <span class="countdown__label">Minutes</span>
+      </div>
+      <!-- Seconds -->
+      <div class="countdown__item">
+        <span class="countdown__value">{{ seconds() }}</span>
+        <span class="countdown__label">Seconds</span>
+      </div>
+    </div>
+    }
+
+    <div class="button-container">
+      <button class="notify-button">
+        Notify Me
+      </button>
+    </div>
+  </div>
+</div>

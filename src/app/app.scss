@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:host {
+  display: block;
+}
+
+.logo {
+  height: 100px;
+}
+
+.coming-soon-container {
+  position: relative;
+  min-height: 100vh;
+  background-color: #111827;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.background-effect {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.background-effect .blob-1,
+.background-effect .blob-2 {
+  position: absolute;
+  height: 24rem;
+  width: 24rem;
+  border-radius: 9999px;
+  filter: blur(48px);
+  opacity: 0.2;
+  transform: translate(-50%, -50%);
+  animation: blob 7s infinite;
+}
+
+.background-effect .blob-1 {
+  background-color: #4f46e5;
+}
+
+.background-effect .blob-2 {
+  background-color: #0ea5e9;
+  animation-delay: -3.5s;
+  transform: translate(50%, 50%);
+}
+
+.content-card {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 48rem;
+  text-align: center;
+  background-color: rgba(31, 41, 55, 0.7);
+  backdrop-filter: blur(8px);
+  border-radius: 1.5rem;
+  padding: 3rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border: 1px solid #374151;
+}
+
+.title {
+  font-size: 3rem;
+  line-height: 1.25;
+  font-weight: 800;
+  background-image: linear-gradient(to right, #818cf8, #38bdf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 1rem;
+  animation: fadeInDown 1s ease-in-out;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 3.75rem;
+  }
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: #d1d5db;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  animation: fadeInUp 1s ease-in-out 0.5s backwards;
+}
+
+@media (min-width: 768px) {
+  .subtitle {
+    font-size: 1.25rem;
+  }
+}
+
+.live-message {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #38bdf8;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+@media (min-width: 768px) {
+  .live-message {
+    font-size: 1.875rem;
+  }
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.875rem;
+  font-family: monospace;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+@media (min-width: 768px) {
+  .countdown {
+    font-size: 3rem;
+    gap: 2rem;
+  }
+}
+
+.countdown__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background-color: #374151;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease-in-out;
+}
+
+.countdown__item:hover {
+  transform: scale(1.05);
+}
+
+.countdown__value {
+  color: #818cf8;
+}
+
+.countdown__label {
+  font-size: 1rem;
+  color: #9ca3af;
+  text-transform: uppercase;
+  font-family: sans-serif;
+}
+
+.button-container {
+  margin-top: 2.5rem;
+}
+
+.notify-button {
+  background-color: #4f46e5;
+  color: #fff;
+  font-weight: 700;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease-in-out;
+  border: none;
+  cursor: pointer;
+}
+
+.notify-button:hover {
+  background-color: #4338ca;
+  transform: scale(1.05);
+}
+
+.notify-button:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.5);
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes blob {
+  0%,
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    transform: translate(20px, -20px) scale(1.1);
+  }
+}
