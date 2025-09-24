@@ -1,0 +1,41 @@
+name: Deploy Calmara
+
+on:
+  push:
+    branches:
+      - main # or your production branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.7.0
+        with:
+          ssh-private-key: ${{ secrets.VPS_SSH_KEY }}
+
+      - name: Deploy to VPS
+        run: |
+          ssh -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
+
+            cd /path/to/your/project
+
+            # Pull latest code
+            git pull origin main
+
+            # Install deps
+            npm install
+
+            # Build Angular app
+            npm run build:prod
+
+            # Restart pm2 with ecosystem config
+            pm2 startOrReload ecosystem.config.js --only calmara
+
+            # Save pm2 state
+            pm2 save
+          EOF
