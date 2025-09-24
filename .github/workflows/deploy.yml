@@ -22,7 +22,7 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
 
-            cd /path/to/your/project
+            cd /root/calmara
 
             # Pull latest code
             git pull origin main
